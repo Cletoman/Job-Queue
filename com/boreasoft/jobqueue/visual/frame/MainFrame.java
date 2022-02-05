@@ -5,8 +5,11 @@ import com.boreasoft.jobqueue.visual.panel.MainPanel;
 
 public class MainFrame extends JFrame {
 
+
 	private final int WIDTH = 1000, HEIGHT = 600;
+
 	private MainPanel mainPanel;
+
 
 	public MainFrame() {
 
@@ -23,7 +26,7 @@ public class MainFrame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
-		mainPanel = new MainPanel(this.getWidth(),this.getHeight());
+		mainPanel = new MainPanel(this);
 
 		this.setContentPane(mainPanel);
 
