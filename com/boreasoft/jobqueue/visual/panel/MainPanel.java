@@ -1,17 +1,25 @@
 package com.boreasoft.jobqueue.visual.panel;
 
 import com.boreasoft.jobqueue.visual.component.MainBar;
+import com.boreasoft.jobqueue.visual.component.ToolBar;
+
 
 import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
+import javax.swing.BorderFactory;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
 
 public class MainPanel extends JPanel {
 
 	private final Color background = new Color(40,40,40);
 	private MainBar mainBar;
-
+	private ToolBar toolBar;
 
 	public MainPanel(JFrame parent) {
 
@@ -32,9 +40,33 @@ public class MainPanel extends JPanel {
 
 	private void loadComponents(JFrame parent) {
 
-		mainBar = new MainBar(parent);
+		JSeparator separator = new JSeparator();
+		separator.setBounds(150,0,5,130);
+		separator.setBackground(java.awt.Color.BLACK);
+		separator.setBorder(BorderFactory.createMatteBorder(2,0,0,0,java.awt.Color.BLACK));
+		separator.setOrientation(SwingConstants.VERTICAL);
+		//this.add(separator);
+
+		toolBar = new ToolBar();
+		this.add(toolBar);
+
+		mainBar = new MainBar(parent,toolBar.getWidth());
 		this.add(mainBar);
 
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+
+		super.paintComponent(g);
+
+
+		Graphics2D g2D = (Graphics2D) g;
+		g2D.setStroke(new BasicStroke(3));
+		g2D.setColor(Color.BLACK);
+		g2D.drawLine(150,0,150,155);
+		
+	
 	}
 
 
