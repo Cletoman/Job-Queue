@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
+import java.awt.Cursor;
+import javax.swing.JFrame;
+import java.awt.Frame;
 
 public class ToolBar extends JPanel {
 
@@ -18,10 +21,11 @@ public class ToolBar extends JPanel {
 	private int currentPanel = -1;
 
 
-	public ToolBar() {
+
+	public ToolBar(JFrame parent) {
 
 		build();
-		loadComponents();
+		loadComponents(parent);
 
 	}
 
@@ -35,7 +39,7 @@ public class ToolBar extends JPanel {
 	}
 
 
-	private void loadComponents() {
+	private void loadComponents(JFrame parent) {
 
 		buttons = new PanelButton[3];
 
@@ -55,6 +59,30 @@ public class ToolBar extends JPanel {
 		buttons[2] = new PanelButton(2,this.getWidth());
 		buttons[2].setBounds(0,(buttons[1].getY()+buttons[1].getHeight()),buttons[2].getWidth(),buttons[2].getHeight());
 		this.add(buttons[2]);
+
+
+		FunctionButton exitButton = new FunctionButton(new Color[] {new Color(35,97,255),new Color(24,67,175),new Color(17,48,127)},
+			new Runnable(){
+				public void run() {
+					System.exit(0);
+				}
+			}
+		);
+		exitButton.setBounds(15,15,55,100);
+		this.add(exitButton);
+
+		//Default,Entered,Pressed
+		FunctionButton minimizeButton = new FunctionButton(new Color[] {new Color(99,255,127),new Color(79,204,100),new Color(55,142,70)},
+			new Runnable(){
+				public void run() {
+
+					parent.setState(Frame.ICONIFIED);
+			
+				}
+			}
+		);
+		minimizeButton.setBounds(80,15,55,100);
+		this.add(minimizeButton);
 
 		
 		changer(0);
@@ -82,6 +110,80 @@ public class ToolBar extends JPanel {
 
 
 	}
+
+
+
+
+
+	class FunctionButton extends JPanel {
+
+		private final Color COLORS[];
+		private final Runnable FUNCTION;
+
+		public FunctionButton(final Color COLORS[],final Runnable FUNCTION) {
+
+
+			this.COLORS = COLORS;
+
+			this.FUNCTION = FUNCTION;
+
+			this.setBorder(BorderFactory.createMatteBorder(2,2,2,2,java.awt.Color.BLACK));
+
+			this.addMouseListener(new MouseListener(){ 
+	    		
+	    		@Override
+	    		public void mouseReleased(MouseEvent e) {
+
+	    			setBackground(COLORS[1]);	
+	    			System.out.println("\n\n"+e);
+
+	    		}
+
+	    		@Override
+	   			public void mousePressed(MouseEvent e) {
+
+	   				setBackground(COLORS[2]);	
+
+	   			}
+
+	    		@Override
+	    		public void mouseExited(MouseEvent e) {
+
+					setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+					setBackground(COLORS[0]);	    			
+
+	    		}
+
+
+	   			@Override
+	   			public void mouseEntered(MouseEvent e) {
+
+	   				setCursor(new Cursor(Cursor.HAND_CURSOR));
+	   				setBackground(COLORS[1]);
+
+	   			}
+
+	    		@Override
+	    		public void mouseClicked(MouseEvent e) {
+
+					 FUNCTION.run();   			
+
+	    		}
+			
+			});
+
+			this.setBackground(COLORS[0]);
+
+
+		}
+
+
+	}
+
+
+
+
+
 
 
 

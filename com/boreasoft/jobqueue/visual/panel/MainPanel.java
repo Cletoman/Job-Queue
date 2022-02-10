@@ -41,7 +41,7 @@ public class MainPanel extends JPanel {
 	private void loadComponents(JFrame parent) {
 
 		
-		toolBar = new ToolBar();
+		toolBar = new ToolBar(parent);
 		this.add(toolBar);
 
 		mainBar = new MainBar(parent,toolBar.getWidth());
