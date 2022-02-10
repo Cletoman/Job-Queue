@@ -68,7 +68,7 @@ public class ToolBar extends JPanel {
 				}
 			}
 		);
-		exitButton.setBounds(15,15,55,100);
+		exitButton.setBounds(15,10,55,55);
 		this.add(exitButton);
 
 		//Default,Entered,Pressed
@@ -81,7 +81,7 @@ public class ToolBar extends JPanel {
 				}
 			}
 		);
-		minimizeButton.setBounds(80,15,55,100);
+		minimizeButton.setBounds(80,65,55,55);
 		this.add(minimizeButton);
 
 		
@@ -127,7 +127,7 @@ public class ToolBar extends JPanel {
 
 			this.FUNCTION = FUNCTION;
 
-			this.setBorder(BorderFactory.createMatteBorder(2,2,2,2,java.awt.Color.BLACK));
+			this.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.BLACK));
 
 			this.addMouseListener(new MouseListener(){ 
 	    		
@@ -135,7 +135,6 @@ public class ToolBar extends JPanel {
 	    		public void mouseReleased(MouseEvent e) {
 
 	    			setBackground(COLORS[1]);	
-	    			System.out.println("\n\n"+e);
 
 	    		}
 
@@ -195,7 +194,7 @@ public class ToolBar extends JPanel {
 
 			this.buttonId = buttonId;
 
-			this.setBorder(BorderFactory.createMatteBorder(2,0,0,2,java.awt.Color.BLACK));
+			this.setBorder(BorderFactory.createMatteBorder(1,0,0,1,java.awt.Color.BLACK));
 
 			this.setBackground(palette[0]);
 
@@ -252,14 +251,14 @@ public class ToolBar extends JPanel {
 		public void focus() {
 
 			this.setBackground(palette[0]);
-			this.setBorder(BorderFactory.createMatteBorder(2,0,0,0,java.awt.Color.BLACK));
+			this.setBorder(BorderFactory.createMatteBorder(1,0,0,0,java.awt.Color.BLACK));
 
 		}
 
 		public void lostFocus() {
 
 			this.setBackground(palette[1]);
-			this.setBorder(BorderFactory.createMatteBorder(2,0,0,2,java.awt.Color.BLACK));
+			this.setBorder(BorderFactory.createMatteBorder(1,0,0,1,java.awt.Color.BLACK));
 
 		}
 

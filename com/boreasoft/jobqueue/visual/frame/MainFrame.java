@@ -26,7 +26,7 @@ public class MainFrame extends JFrame {
 		this.setUndecorated(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		getRootPane().setBorder(BorderFactory.createMatteBorder(3,3,3,3,java.awt.Color.BLACK));
+		getRootPane().setBorder(BorderFactory.createMatteBorder(2,2,2,2,java.awt.Color.BLACK));
 
 		mainPanel = new MainPanel(this);
 
