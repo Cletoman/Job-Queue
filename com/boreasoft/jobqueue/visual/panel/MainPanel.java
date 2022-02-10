@@ -40,13 +40,7 @@ public class MainPanel extends JPanel {
 
 	private void loadComponents(JFrame parent) {
 
-		JSeparator separator = new JSeparator();
-		separator.setBounds(150,0,5,130);
-		separator.setBackground(java.awt.Color.BLACK);
-		separator.setBorder(BorderFactory.createMatteBorder(2,0,0,0,java.awt.Color.BLACK));
-		separator.setOrientation(SwingConstants.VERTICAL);
-		//this.add(separator);
-
+		
 		toolBar = new ToolBar();
 		this.add(toolBar);
 
