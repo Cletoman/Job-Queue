@@ -208,6 +208,8 @@ public class ToolBar extends JPanel {
 	    		@Override
 	   			public void mousePressed(MouseEvent e) {
 
+	   				changer(buttonId);
+
 	   			}
 
 	    		@Override
@@ -238,9 +240,6 @@ public class ToolBar extends JPanel {
 
 	    		@Override
 	    		public void mouseClicked(MouseEvent e) {
-
-	    			changer(buttonId);
-
 	    		}
 			
 			});

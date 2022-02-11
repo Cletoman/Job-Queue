@@ -2,6 +2,7 @@ package com.boreasoft.jobqueue.visual.panel;
 
 import com.boreasoft.jobqueue.visual.component.MainBar;
 import com.boreasoft.jobqueue.visual.component.ToolBar;
+import com.boreasoft.jobqueue.visual.layer.*;
 
 
 import javax.swing.JPanel;
@@ -20,6 +21,9 @@ public class MainPanel extends JPanel {
 	private final Color background = new Color(40,40,40);
 	private MainBar mainBar;
 	private ToolBar toolBar;
+
+	private InformationLayer informationLayer;
+	private MainLayer mainLayer;
 
 	public MainPanel(JFrame parent) {
 
@@ -46,6 +50,13 @@ public class MainPanel extends JPanel {
 
 		mainBar = new MainBar(parent,toolBar.getWidth());
 		this.add(mainBar);
+
+		informationLayer = new InformationLayer();
+		this.add(informationLayer);
+
+		mainLayer = new MainLayer();
+		this.add(mainLayer);
+
 
 	}
 
